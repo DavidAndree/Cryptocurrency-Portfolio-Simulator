@@ -1,0 +1,23 @@
+<!-- 
+ David Alvarado 
+ CIS 218
+ 12/11/2024
+-->
+
+{% extends "adminlte2/base.html" %}
+
+{% block title %}
+    Delete Alert
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h3>Are you sure you want to delete this alert?</h3>
+    <p><strong>{{ object.coin }}</strong>: Alert Threshold - ${{ object.price_threshold }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'list_alerts' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock content %}

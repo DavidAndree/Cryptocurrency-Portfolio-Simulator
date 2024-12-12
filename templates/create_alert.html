@@ -1,0 +1,91 @@
+<!-- 
+ David Alvarado 
+ CIS 218
+ 12/11/2024
+-->
+
+{% extends "adminlte2/base.html" %}
+
+{% block title %}
+    Create Crypto Alert
+{% endblock title %}
+
+{% block page_name %}
+    New Alert
+{% endblock page_name %}
+
+{% block page_description %}
+    Set up a price alert for your favorite cryptocurrency.
+{% endblock page_description %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Create Alert</h3>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="coin">Cryptocurrency</label>
+                            <select id="coin" name="coin" class="form-control">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="tether">Tether</option>
+                                <option value="binancecoin">Binance Coin</option>
+                                <option value="xrp">XRP</option>
+                                <option value="cardano">Cardano</option>
+                                <option value="dogecoin">Dogecoin</option>
+                                <option value="solana">Solana</option>
+                                <option value="tron">TRON</option>
+                                <option value="polkadot">Polkadot</option>
+                                <option value="polygon">Polygon</option>
+                                <option value="litecoin">Litecoin</option>
+                                <option value="shiba">Shiba Inu</option>
+                                <option value="dai">Dai</option>
+                                <option value="avalanche">Avalanche</option>
+                                <option value="wrappedbitcoin">Wrapped Bitcoin</option>
+                                <option value="uniswap">Uniswap</option>
+                                <option value="chainlink">Chainlink</option>
+                                <option value="leo">LEO Token</option>
+                                <option value="stellar">Stellar</option>
+                            </select>
+                            <small class="form-text text-muted">
+                                Select the cryptocurrency you want to track.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="price_threshold">Price Threshold (USD)</label>
+                            <input type="number" step="0.01" id="price_threshold" name="price_threshold" class="form-control" required>
+                            <small class="form-text text-muted">
+                                Enter the price at which you want to be alerted (example: $150,000 for Bitcoin).
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="direction">Direction</label>
+                            <select id="direction" name="direction" class="form-control">
+                                <option value="UP">Above</option>
+                                <option value="DOWN">Below</option>
+                            </select>
+                            <small class="form-text text-muted">
+                                Choose whether to trigger the alert when the price goes above or below the threshold.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Alert
+                        </button>
+                        <a href="{% url 'list_alerts' %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

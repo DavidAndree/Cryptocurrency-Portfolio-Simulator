@@ -1,0 +1,47 @@
+<!-- 
+ David Alvarado 
+ CIS 218
+ 12/11/2024
+-->
+
+{% extends "adminlte2/base.html" %}
+
+{% block title %}
+    Edit Alert
+{% endblock title %}
+
+{% block page_name %}
+    Edit Alert
+{% endblock page_name %}
+
+{% block page_description %}
+    Update your cryptocurrency alert details.
+{% endblock page_description %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Edit Alert</h3>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <a href="{% url 'list_alerts' %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

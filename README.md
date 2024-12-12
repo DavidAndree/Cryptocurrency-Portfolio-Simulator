@@ -2,7 +2,7 @@
 
 ## Author
 
-
+David Alvarado
 
 ## Description
 
@@ -87,8 +87,9 @@ https://adminlte.io/themes/AdminLTE/documentation/index.html
 
 ## Outside Resources Used
 
-
-
+This is the website where I got Coingecko's api    (Its' very well documented)
+  https://docs.coingecko.com/reference/simple-price
+ 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-
+I'm not aware of any problems with this program.
